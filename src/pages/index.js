@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
@@ -8,9 +9,8 @@ export default function Home() {
         <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
       </Head>
       
-      <h1>Amazon</h1>
-      
-      
+        {/* header */}
+        <Header></Header>
     </div>
   );
 }
