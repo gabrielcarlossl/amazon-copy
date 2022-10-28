@@ -11,6 +11,14 @@ export default function Home() {
       
         {/* header */}
         <Header></Header>
+
+        <main className="max-w-screen-2xl mx-auto">
+          {/* Banner */}
+          <Banner>
+            
+          </Banner>
+          {/* Product feed */}
+        </main>
     </div>
   );
 }
