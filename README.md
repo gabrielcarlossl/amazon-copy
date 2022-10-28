@@ -12,6 +12,7 @@
 - Stripe Checkout
 - Firebase
 - Fake Store API
+- React Responsive Carousel
 
 ## Functionalities
 
