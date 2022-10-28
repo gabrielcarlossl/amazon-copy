@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { StarIcon } from "@heroicons/react/solid"
 import Currency from 'react-currency-formatter'
+import CurrencyFix from './CurrencyFix';
 
 function Product({ id, title, price, description, category, image }) {
 
@@ -30,7 +31,8 @@ function Product({ id, title, price, description, category, image }) {
             <p className='text-xs my-2 line-clamp-2'>{description}</p>
 
             <div className='mb-5'>
-                <Currency quantity={price} currency='BRL'></Currency>
+                <CurrencyFix price={price}></CurrencyFix>
+                {/* <Currency quantity={price} currency='BRL'></Currency> */}
             </div>
 
             {hasPrime && (
