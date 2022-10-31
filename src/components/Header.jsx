@@ -15,7 +15,8 @@ import { useSession, signIn, signOut } from 'next-auth/client'
 
 function Header() {
 
-        
+    const [session] = useSession()
+
     return (
         <header className='bg-black flex-grow'>
 
@@ -37,18 +38,73 @@ function Header() {
 
                 <div className='hidden md:flex text-white whitespace-nowrap items-center pr-7 cursor-pointer'>
                     <LocationMarkerIcon className='h-5'></LocationMarkerIcon>
-                    <div className='pl-1'>
-                        <p className='text-xs text-gray-400'>Enviar para Gabriel</p>
-                        <p className='font-bold'>Brasil</p>
-                    </div>
+                    {session?.user ? (
+
+                        <div className='pl-1'>
+                            <p className='text-xs text-gray-400'>Enviar para</p>
+                            <p className='text-xs text-gray-400'>{session?.user.name}</p>
+                            <p className='font-bold'>Brasil</p>
+                        </div>
+                    ) : (
+
+                        <div className='pl-1'>
+                            <p className='text-xs text-gray-400'>Olá</p>
+                            <p className='font-semibold text-sm text-white'>Selecione o endereço</p>
+
+                        </div>
+
+                    )}
+
                 </div>
 
                 {/* Search bar */}
 
 
-
+                <div className='hidden sm:flex'>
+                <select id="select" className='h-10 w-20 bg-gray-100 border border-gray-300 text-gray-500 text-sm border-l rounded-l-md border-r border-r-yellow-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 active:from-yellow-500; pl-2   '>
+                        <option value="valor1" selected>Todos</option>
+                        <option value="valor2" >Alexa Skills</option>
+                        <option value="valor3">Apps e Jogos</option>
+                        <option value="valor4">Automotivo</option>
+                        <option value="valor5">Bebês</option>
+                        <option value="valor6">Beleza</option>
+                        <option value="valor7">Beleza de Luxo</option>
+                        <option value="valor8">Bolsas, Malas e Mochilas</option>
+                        <option value="valor9">Brinquedos e Jogos</option>
+                        <option value="valor10">Casa</option>
+                        <option value="valor11">CD e Vinil</option>
+                        <option value="valor12">Computadores e Informática</option>
+                        <option value="valor13">Cozinha</option>
+                        <option value="valor14">Dispositivos Amazon</option>
+                        <option value="valor14">DVD e Blu-Ray</option>
+                        <option value="valor15">Eletrodomésticos</option>
+                        <option value="valor16">Eletrônicos</option>
+                        <option value="valor17">Esportes e Aventura</option>
+                        <option value="valor18">Ferramentas e Materiais de Construção</option>
+                        <option value="valor19">Games</option>
+                        <option value="valor20">Instrumentos Musicais</option>
+                        <option value="valor21">Jardim e Piscina</option>
+                        <option value="valor22">Livros</option>
+                        <option value="valor23">Loja Kindle</option>
+                        <option value="valor24">Material para Escritório e Papelaria</option>
+                        <option value="valor25">Móveis e Decoração</option>
+                        <option value="valor26">Pet Shop</option>
+                        <option value="valor27">Prime Video</option>
+                        <option value="valor28">Produtos Industriais e Científicos</option>
+                        <option value="valor29">Programe e Poupe</option>
+                        <option value="valor30">Roupas, Calçados e Joias</option>
+                        <option value="valor31">&nbsp;&nbsp;&nbsp;Feminino</option>
+                        <option value="valor32">&nbsp;&nbsp;&nbsp;Masculino</option>
+                        <option value="valor33">&nbsp;&nbsp;&nbsp;Meninas</option>
+                        <option value="valor34">&nbsp;&nbsp;&nbsp;Meninos</option>
+                        <option value="valor35">&nbsp;&nbsp;&nbsp;Bebês</option>
+                        <option value="valor36">Saúde e Cuidados Pessoais</option>
+                    </select>
+                </div>
+                
                 <div className='hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer bg-[#FEBD69] hover:bg-yellow-500'>
-                    <input className='p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4' type="text" name="" id="" />
+                
+                    <input className='p-2 h-full w-6 flex-grow flex-shrink  focus:outline-none px-4' type="text" name="" id="" />
                     <SearchIcon className='h-14 p-4'></SearchIcon>
                 </div>
 
@@ -57,7 +113,7 @@ function Header() {
                 <div className='flex whitespace-nowrap md:text-xs text-white'>
 
                     <div onClick={signIn} className='flex flex-col pl-8 text-sm link '>
-                        <p>Olá, Gabriel</p>
+                        <p>Olá, {session?.user ? session?.user?.name : 'faça seu login'}</p>
                         <div className='flex items-end'>
                             <p className='flex font-bold'>Contas e Listas </p><ChevronDownIcon className='h-5 font-extrabold'></ChevronDownIcon>
                         </div>
@@ -85,7 +141,7 @@ function Header() {
 
             {/* bottom nav */}
             <div className='flex text-white font-semibold text-sm bg-amazon_blue-light items-center whitespace-nowrap justify-between'>
-                
+
                 <div className='flex items-center whitespace-nowrap space-x-3 p-2 pl-6'>
                     <p className='link flex items-center'> <MenuIcon className='h-6 mr-1'></MenuIcon> Todos</p>
                     <p className='link'>Venda na Amazon</p>
