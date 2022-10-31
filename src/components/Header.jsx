@@ -11,8 +11,11 @@ import {
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 
+import { useSession, signIn, signOut } from 'next-auth/react'
 
 function Header() {
+
+        
     return (
         <header className='bg-black flex-grow'>
 
@@ -53,7 +56,7 @@ function Header() {
 
                 <div className='flex whitespace-nowrap md:text-xs text-white'>
 
-                    <div className='flex flex-col pl-8 text-sm link '>
+                    <div onClick={signIn} className='flex flex-col pl-8 text-sm link '>
                         <p>Olá, Gabriel</p>
                         <div className='flex items-end'>
                             <p className='flex font-bold'>Contas e Listas </p><ChevronDownIcon className='h-5 font-extrabold'></ChevronDownIcon>
