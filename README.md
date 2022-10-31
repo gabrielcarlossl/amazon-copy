@@ -10,7 +10,7 @@
 - Redux
 - WebHooks
 - Stripe Checkout
-- Firebase
+- Firebase 8.6.2
 - Fake Store API
 - React Responsive Carousel
 
