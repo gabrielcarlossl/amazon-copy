@@ -42,7 +42,7 @@ function Product({ id, title, price, description, category, image }) {
                 </div>
             )}
 
-            <button className='mt-auto button'>Adicioanr ao Carrinho</button>
+            <button className='mt-auto button'>Adicionar ao Carrinho</button>
         </div>
     )
 }
