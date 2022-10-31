@@ -88,7 +88,7 @@ function Header() {
                     <p className='link'>Venda na Amazon</p>
                     <p>Mais Vendidos</p>
                     <p>Ofertas do Dia</p>
-                    <p className='flex items-end'>Prime <ChevronDownIcon className='h-4 text-gray-300'></ChevronDownIcon></p>
+                    <p className='hidden sm:flex items-end'>Prime<ChevronDownIcon className='h-4 text-gray-300'></ChevronDownIcon></p>
                     <p className='hidden clg:inline-flex'>Atendimento ao Cliente</p>
                     <p className='hidden cxl:inline-flex'>Música</p>
                     <p className='hidden c2xl:inline-flex'>Livros</p>
@@ -100,8 +100,8 @@ function Header() {
                 </div>
 
 
-                <div className='flex pr-6'>
-                    <p className='flex-end font-semibold text-xl'>Confira os Ereaders Kindle</p>
+                <div className='hidden md:flex pr-6'>
+                    <p className=' flex-end font-semibold text-xl'>Esquenta Black Friday</p>
                 </div>
 
 
