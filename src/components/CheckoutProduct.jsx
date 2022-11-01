@@ -2,21 +2,10 @@ import { StarIcon } from '@heroicons/react/solid'
 import Image from 'next/image'
 import React from 'react'
 
-import { useDispatch } from 'react-redux'
-import { addToBasket } from '../slices/basketSlice'
-
 import CurrencyFix from "../components/CurrencyFix"
 
 function CheckoutProduct({ id, title, price, rating, description, category, image, hasPrime }) {
 
-    const dispatch = useDispatch()
-
-    const addItemToBasket = () => {
-        const product = { id, title, price, description, category, image }
-
-        // envia o produto como uma action para o Redux 
-        dispatch(addToBasket(product))
-    }
 
     return (
 
