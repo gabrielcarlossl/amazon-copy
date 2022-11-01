@@ -1,8 +1,8 @@
 import React from 'react'
 
-function CurrencyFix({price}) {
+function CurrencyFix({price, className}) {
   return (
-    <p>{`R$${price.toString().replace(".",',')}`}</p>
+    <p className={className}>{`R$${price.toString().replace(".",',')}`}</p>
   )
 }
 

@@ -27,17 +27,10 @@ function Checkout() {
 
                     <div className='flex flex-col px-5 pt-5 space-y-10 bg-white'>
 
-                        <div className='block border-b pb-1'>
+                        <div className='border-b pb-3 mb-5'>
                             <h1 className='text-3xl'>
                                 {items.length === 0 ? 'Seu carrinho de compras da Amazon está vazio.' : 'Carrinho de compras'}
                             </h1>
-
-                            <div className='custom-end text-gray-500'>
-                                <span className='text-xs'>
-                                    {items.length === 0 ? ' ' : 'Preço'}
-                                </span>
-                            </div>
-
                         </div>
 
 
@@ -68,8 +61,6 @@ function Checkout() {
                 <div >
                     {items.length === 0 ? (<div className='hidden h-16 m-5 bg-white'></div>) : (
                         <>
-
-
                         </>
                     )}
 
