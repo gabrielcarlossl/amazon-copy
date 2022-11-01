@@ -5,13 +5,15 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addToBasket } from '../slices/basketSlice'
 
+import CurrencyFix from "../components/CurrencyFix"
+
 function CheckoutProduct({ id, title, price, rating, description, category, image, hasPrime }) {
 
     const dispatch = useDispatch()
 
     const addItemToBasket = () => {
         const product = { id, title, price, description, category, image }
-        
+
         // envia o produto como uma action para o Redux 
         dispatch(addToBasket(product))
     }
@@ -20,7 +22,7 @@ function CheckoutProduct({ id, title, price, rating, description, category, imag
 
         <div>
 
-            <div className='grid grid-cols-5'>
+            <div className='grid grid-cols-5 pb-5'>
 
                 {/* left section 1 column */}
                 <Image
@@ -33,7 +35,12 @@ function CheckoutProduct({ id, title, price, rating, description, category, imag
                 {/* Middle section  takes 3 columns*/}
 
                 <div className='col-span-3 mx-5'>
+
+
                     <p>{title}</p>
+
+                    <CurrencyFix price={price}></CurrencyFix>
+
                     <p className='text-[#107F10] text-xs font-semibold'>Em  estoque</p>
 
                     <div className='items-center'>
@@ -58,11 +65,12 @@ function CheckoutProduct({ id, title, price, rating, description, category, imag
                     </div>
 
 
-                    <div>
+                    <div className='flex my-2'>
                         {Array(rating).fill().map((_, i) => (
                             <StarIcon key={i} className='h-5 text-yellow-500'></StarIcon>
                         ))}
                     </div>
+
                 </div>
             </div>
         </div>
