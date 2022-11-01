@@ -13,9 +13,13 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 
 import { useSession, signIn, signOut } from 'next-auth/client'
 
+import { useRouter } from 'next/router'
+
 function Header() {
 
     const [session] = useSession()
+
+    const router = useRouter()
 
     return (
         <header className='bg-black flex-grow'>
@@ -26,6 +30,7 @@ function Header() {
                 <div className='mt-2 flex items-center flex-grow sm:flex-grow-0 flex-shrink-0'>
                     <Image
 
+                        onClick={()=> router.push('/')}
                         src='https://pngimg.com/uploads/amazon/amazon_PNG11.png'
                         objectFit='contain'
                         width={150}
@@ -112,7 +117,7 @@ function Header() {
 
                 <div className='flex whitespace-nowrap md:text-xs text-white'>
 
-                    <div onClick={signIn} className='flex flex-col pl-8 text-sm link '>
+                    <div onClick={!session ? signIn : signOut} className='flex flex-col pl-8 text-sm link '>
                         <p>Olá, {session?.user ? session?.user?.name : 'faça seu login'}</p>
                         <div className='flex items-end'>
                             <p className='flex font-bold'>Contas e Listas </p><ChevronDownIcon className='h-5 font-extrabold'></ChevronDownIcon>
@@ -127,7 +132,9 @@ function Header() {
 
                     </div>
 
-                    <div className='relative flex items-end pl-4'>
+                    {/* checkout button */}
+
+                    <div onClick={()=> router.push('/checkout')} className='relative flex items-end pl-4'>
 
                         <span className='absolute top-0 -right-2 md:right-10 h-5 w-5 bg-yellow-400 text-center rounded-full text-black font-bold'>
                             7
