@@ -14,12 +14,16 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import { useSession, signIn, signOut } from 'next-auth/client'
 
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
+import { selectItems } from '../slices/basketSlice'
 
 function Header() {
 
     const [session] = useSession()
 
     const router = useRouter()
+
+    const items = useSelector(selectItems)
 
     return (
         <header className='bg-black flex-grow'>
@@ -109,7 +113,7 @@ function Header() {
                 
                 <div className='hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer bg-[#FEBD69] hover:bg-yellow-500'>
                 
-                    <input className='p-2 h-full w-6 flex-grow flex-shrink  focus:outline-none px-4' type="text" name="" id="" />
+                    <input className='p-2 h-full w-6 flex-grow flex-shrink  focus:outline-none px-4' type="text" />
                     <SearchIcon className='h-14 p-4'></SearchIcon>
                 </div>
 
@@ -136,8 +140,8 @@ function Header() {
 
                     <div onClick={()=> router.push('/checkout')} className='relative flex items-end pl-4'>
 
-                        <span className='absolute top-0 -right-2 md:right-10 h-5 w-5 bg-yellow-400 text-center rounded-full text-black font-bold'>
-                            7
+                        <span className='absolute -top-1 -right-2 md:right-10 h-5 w-5 bg-yellow-400 text-center rounded-full text-black font-bold'>
+                            {items.length}
                         </span>
 
                         <ShoppingCartIcon className='h-10 link'></ShoppingCartIcon><p className='hidden md:inline font-extrabold link'>Carrinho</p>
