@@ -1,5 +1,7 @@
 # Amazon functional copy
 
+https://amazon-v7.vercel.app
+
 ## Tecnologies
 
 - Next.js
