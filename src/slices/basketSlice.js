@@ -9,9 +9,24 @@ export const basketSlice = createSlice({
   initialState,
   reducers: {
     addToBasket: (state, action) => {
-      state.items = [...state.items, action.payload]
+      state.items = [...state.items, action.payload];
     },
-    removeFromBasket: (state, action) => {},
+    removeFromBasket: (state, action) => {
+      const index = state.items.findIndex(
+        ((basketItem) => basketItem.id === action.payload.id)
+      );
+      
+      let newBasket = [...state.items]
+      if (index >= 0 ) {
+        // o item existe no carrinho
+
+        newBasket.splice(index, 1)
+      } else  {
+        console.warn(`Não pode remover o produto (id: ${action.payload.id}) pois não está no carrinho`)
+      }
+
+      state.items = newBasket
+    },
   },
 });
 

@@ -1,13 +1,25 @@
 import { StarIcon } from '@heroicons/react/solid'
 import Image from 'next/image'
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
 import CurrencyFix from "../components/CurrencyFix"
 
+import { addToBasket, removeFromBasket} from '../slices/basketSlice'
+
 function CheckoutProduct({ id, title, price, rating, description, category, image, hasPrime }) {
 
+    const dispatch = useDispatch()
+
+    // envia item para o redux
+    const addItemToBasket = () => {
+        const product = {id, title, price, rating, description, category, image, hasPrime}
+        dispatch(addToBasket(product))
+    }
+
+    // remove o item do redux
     const removeItemFromBasket = () => {
-        
+        dispatch(removeFromBasket({id}))
     }
 
     return (
@@ -78,7 +90,7 @@ function CheckoutProduct({ id, title, price, rating, description, category, imag
 
             {/*  botões laterais */}
             <div className='flex flex-col space-y-2 my-auto justify-self-end'>
-                <button className='button mt-auto font-semibold'>Remover do Carrinho</button>
+                <button onClick={removeItemFromBasket} className='button mt-auto font-semibold'>Remover do Carrinho</button>
             </div>
 
         </div>
