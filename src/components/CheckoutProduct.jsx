@@ -98,11 +98,11 @@ function CheckoutProduct({ id, title, price, rating, description, category, imag
                         </select>
 
 
-                        <button onClick={removeItemFromBasket} className='my-2 text-xs text-[#097689] hover:underline border-solid border-gray-300 border-r outline-none px-3'>
+                        <button onClick={removeItemFromBasket} className='my-2 text-xs text-[#097689] hover:underline border-solid border-gray-300 border-r outline-none px-3 focus:outline-none active:outline-none'>
                             Excluir
                         </button>
 
-                        <button className='text-xs text-[#097689] outline-none px-3 hover:underline ring-0'>Salvar para mais tarde</button>
+                        <button className='text-xs text-[#097689] outline-none px-3 hover:underline ring-0 active:outline-none border-none focus:outline-none'>Salvar para mais tarde</button>
 
 
                     </div>
