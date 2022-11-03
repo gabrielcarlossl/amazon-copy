@@ -6,6 +6,9 @@ import CurrencyFix from "../components/CurrencyFix"
 
 function CheckoutProduct({ id, title, price, rating, description, category, image, hasPrime }) {
 
+    const removeItemFromBasket = () => {
+        
+    }
 
     return (
 
@@ -26,7 +29,7 @@ function CheckoutProduct({ id, title, price, rating, description, category, imag
 
 
                 <p>{title}</p>
-
+            
                 <CurrencyFix className={'font-bold py-2'} price={price}></CurrencyFix>
 
                 <p className='text-[#107F10] text-xs font-semibold'>Em  estoque</p>
@@ -75,8 +78,7 @@ function CheckoutProduct({ id, title, price, rating, description, category, imag
 
             {/*  botões laterais */}
             <div className='flex flex-col space-y-2 my-auto justify-self-end'>
-                <button className='button mt-auto'>Adicionar ao Carrinho</button>
-                <button className='button mt-auto'>Remover do Carrinho</button>
+                <button className='button mt-auto font-semibold'>Remover do Carrinho</button>
             </div>
 
         </div>

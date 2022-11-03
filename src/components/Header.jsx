@@ -70,7 +70,7 @@ function Header() {
 
 
                 <div className='hidden sm:flex'>
-                <select id="select" className='h-10 w-20 bg-gray-100 border border-gray-300 text-gray-500 text-sm border-l rounded-l-md border-r border-r-yellow-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 active:from-yellow-500; pl-2   '>
+                <select id="select" className='h-10 w-20 bg-gray-100 border border-gray-300 text-gray-500 text-sm border-l rounded-l-md border-r border-r-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 active:from-yellow-500; pl-2   '>
                         <option value="valor1" selected>Todos</option>
                         <option value="valor2" >Alexa Skills</option>
                         <option value="valor3">Apps e Jogos</option>
