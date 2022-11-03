@@ -65,6 +65,7 @@ function CheckoutProduct({ id, title, price, rating, description, category, imag
                         <hr />
                         <option value="valor9">Qtd: 10+</option>
                     </select>
+                    
                 </div>
 
 
