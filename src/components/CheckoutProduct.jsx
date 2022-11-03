@@ -1,5 +1,6 @@
 import { StarIcon } from '@heroicons/react/solid'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
@@ -8,6 +9,9 @@ import CurrencyFix from "../components/CurrencyFix"
 import { addToBasket, removeFromBasket } from '../slices/basketSlice'
 
 function CheckoutProduct({ id, title, price, rating, description, category, image, hasPrime }) {
+
+    const router = useRouter()
+
 
     const dispatch = useDispatch()
 
@@ -60,7 +64,7 @@ function CheckoutProduct({ id, title, price, rating, description, category, imag
 
                     </div>
 
-                    <p className='text-xs text-gray-500'>Vendido por: <span className='text-[#097689]'>Amazon</span></p>
+                    <p className='text-xs text-gray-500'>Vendido por: <span onClick={()=> router.push('/')} className='text-[#097689] cursor-pointer'>Amazon</span></p>
 
                     <p className='text-[#107F10] text-xs font-semibold'>Em  estoque</p>
 
